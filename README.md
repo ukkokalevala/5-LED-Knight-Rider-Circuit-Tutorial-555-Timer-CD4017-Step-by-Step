@@ -1,7 +1,7 @@
 # 5-LED-Knight-Rider-Circuit-Tutorial-555-Timer-CD4017-Step-by-Step
 Reviewed of Your Knight Rider 555 + CD4017 Wiring
 
-5-LED Knight Rider Full Wiring (No Transistors)
+5-LED Knight Rider – Corrected Full Wiring (No Transistors)
 TIMESTAMPS / CHAPTERS
 0:00 – Intro
 0:20 – Parts you need
@@ -38,6 +38,7 @@ PARTS LIST
 Breadboard + jumper wires
 
 1) 555 TIMER (ASTABLE CLOCK)
+text
 • Pin 1  → GND
 • Pin 2  → tied to Pin 6
 • Pin 3  → CD4017 Pin 14 (clock)
@@ -47,13 +48,12 @@ Breadboard + jumper wires
 • Pin 7  → junction of 10 kΩ resistor (to VCC) and pot Pin 1
 • Pin 8  → VCC
 Timing / speed control network
-
+text
 VCC ── 10 kΩ ──┬── 555 Pin 7
                │
                └── 1 kΩ ── POT Pin 1
                             POT Pin 2 (wiper) ── 555 Pins 2 & 6
-                            POT Pin 3 ── NOT CONNECTED (leave open)
-
+                            POT Pin 3 ── NOT CONNECTED 
 555 Pins 2 & 6 ── 10 µF (+) ── GND
 The 10 kΩ sets the minimum charge resistance.
 
@@ -66,7 +66,7 @@ The 10 µF sets the timing range; swap to 4.7 µF for faster, 47 µF for slower.
 Note: This arrangement does not give a 50 % duty cycle (charge path = 10 k + 1 k + R_pot, discharge path = 1 k + R_pot). That's normal and fine for driving a CD4017 — the counter only needs clean clock pulses.
 
 2) CD4017 CONNECTIONS
-
+text
 • Pin 16 → VCC
 • Pin 8  → GND
 • Pin 13 → GND          (clock enable — active low)
@@ -74,13 +74,13 @@ Note: This arrangement does not give a 50 % duty cycle (charge path = 10 k + 1 k
 • Pin 15 ← Q5 (Pin 1)   (reset after 5 LEDs)
 • 0.1 µF ceramic across Pin 16 → GND (decoupling, recommended)
 3) LED WIRING
-Output 4017 Pin LED Resistor
-Q0 Pin 3 LED1 220 Ω
-Q1 Pin 2 LED2 220 Ω
-Q2 Pin 4 LED3 220 Ω
-Q3 Pin 7 LED4 220 Ω
-Q4 Pin 10 LED5 220 Ω
-
+Output	4017 Pin	LED	Resistor
+Q0	Pin 3	LED1	220 Ω
+Q1	Pin 2	LED2	220 Ω
+Q2	Pin 4	LED3	220 Ω
+Q3	Pin 7	LED4	220 Ω
+Q4	Pin 10	LED5	220 Ω
+text
 4017 output ── 220 Ω ── LED anode (long leg)
 LED cathode (short leg) ── GND
 4) POTENTIOMETER — CORRECT WIRING
@@ -153,11 +153,11 @@ Turn the pot — the chase speed should change smoothly.
 If nothing happens, check the 555 output (Pin 3) with a multimeter or LED+resistor — it should toggle.
 
 7) TROUBLESHOOTING TIPS
-Symptom Likely cause
-No LEDs light Power not connected, or 555 not oscillating (check Pin 3)
-Only one LED stays on 555 not clocking — check pot/10 k/10 µF network
-LEDs chase but don't reset Pin 15 not connected to Q5 (Pin 1)
-All LEDs on at once Pin 13 not grounded, or missing GND on 4017 Pin 8
-Speed doesn't change Pot wiper not connected to Pins 2 & 6, or pot Pin 3 accidentally tied to something
-Erratic / flickering Missing 0.01 µF on Pin 5 or 0.1 µF decoupling on 4017; check breadboard contacts
-555 gets hot Pin 4 or Pin 8 reversed, or output shorted
+Symptom	Likely cause
+No LEDs light	Power not connected, or 555 not oscillating (check Pin 3)
+Only one LED stays on	555 not clocking — check pot/10 k/10 µF network
+LEDs chase but don't reset	Pin 15 not connected to Q5 (Pin 1)
+All LEDs on at once	Pin 13 not grounded, or missing GND on 4017 Pin 8
+Speed doesn't change	Pot wiper not connected to Pins 2 & 6, or pot Pin 3 accidentally tied to something
+Erratic / flickering	Missing 0.01 µF on Pin 5 or 0.1 µF decoupling on 4017; check breadboard contacts
+555 gets hot	Pin 4 or Pin 8 reversed, or output shorted
